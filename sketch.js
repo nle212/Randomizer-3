@@ -21,36 +21,40 @@ let Arjuna;
 let Kama;
 let Karna;
 let Oberon;
+let servant = [];
 
 function preLoad(){
-  
-  Arcueid = loadImage('images/Arcueid.jpg');
+  for (let i = 0; i <= 5; i++){
+   servant[i] = loadImage (`assets/servant_${i}.jpg`)
+  }
+
 }
 
 function setup(){
-createCanvas(600,600);
-background(200);
+createCanvas(1500,1500);
+background(102,178,255);
 fill(0,0,0);
 textSize(50);
-text("Click to protect", 100,150); 
-text("the humanity!", 100,200);
+text("Click to protect", 500,150); 
+text("the humanity!", 500,200);
 
 
 }
 
 function draw() {
-  image(Arcueid, 100, 200);
-  
+  if (animating == true){
+  image(servant[1], width/2, height/2);
+  }
 }
 
 function mousePressed(){
   if (servants[0]){
-  background(random(200,255));
+    background(102,178,255);
   randomIndex = int(random(servants.length));
   text(servants[randomIndex].name, 200, 200);
   servants.splice(randomIndex,1);
 } else{
-  background(random(200,250));
+  background(102,178,255);
   text("Lostbelt Completed!", 80, 300);
 }
 }
