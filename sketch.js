@@ -21,6 +21,12 @@ let Arjuna;
 let Kama;
 let Karna;
 let Oberon;
+
+function preLoad(){
+  
+  Arcueid = loadImage('images/Arcueid.jpg');
+}
+
 function setup(){
 createCanvas(600,600);
 background(200);
@@ -29,9 +35,11 @@ textSize(50);
 text("Click to protect", 100,150); 
 text("the humanity!", 100,200);
 
+
 }
 
 function draw() {
+  image(Arcueid, 100, 200);
   
 }
 
