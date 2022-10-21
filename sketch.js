@@ -18,11 +18,7 @@ let servants = [{
 
 let randomIndex;
 let animating = false;
-let Arcueid;
-let Arjuna;
-let Kama;
-let Karna;
-let Oberon;
+let imageCounter = 1;
 let servant = [];
 
 
@@ -39,23 +35,35 @@ fill(0,0,0);
 textFont('Courier new');
 textSize(50);
 textStyle(BOLD);
+frameRate (12);
 text("Humanity is being threatened!", 280,300); 
 createButton("Click here to protect the humanity!");
 }
 
 function draw() {
+  
   if (animating == true){
   console.log(servant[1])
-  image(servant[1], width/2, height/2);
+  clear();
+  image(servant[imageCounter], 400, 90);
+
+  if (imageCounter < servant.length - 1){
+  imageCounter++;
+   } else {
+    imageCounter = 0;
+   }
   }
 }
 
 function randomizer(){
   animating = false;
   if (servants[0]){
-    background(102,178,255);
+  clear();
+  
   randomIndex = int(random(servants.length));
-  text(servants[randomIndex].name, 500, 100);
+  background(102,178,255);
+  text(servants[randomIndex].name, 560, 50);
+  image(random(servant), 400, 90);
   servants.splice(randomIndex,1);
 } else{
   background(102,178,255);
